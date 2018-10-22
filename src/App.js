@@ -17,18 +17,14 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // on peut mettre notre sampleEmployee par défaut
-      // afin d'avoir toujours un employé d'affiché
       quote:  sampleQuote,
     };
   }
 
   getQuote() {
-    // Récupération de l'employé via fetch
     fetch("https://thesimpsonsquoteapi.glitch.me/quotes")
       .then(response  =>  response.json())
       .then(data  => {
-        // Une fois les données récupérées, on va mettre à jour notre state avec les nouvelles données
         this.setState({
           quote:  data[0],
         });
